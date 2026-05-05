@@ -21,6 +21,27 @@ body  {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
+#wrapper {
+    position: relative;
+}
+#intro {
+    position: relative;
+    overflow: hidden;
+    height: 60px;
+    transition: 1s;
+}
+#intro.scrolling {
+    height: 300px;
+}
+#scrollArea {
+    height: 100%;
+    padding-bottom: 40px;
+    overflow-y: auto;
+    transition: 1s;
+}
+#scrollArea.scrolling {
+    height: 300px;
+}
 .card  {
     justify-content: center;
     max-width: 400px;
@@ -114,12 +135,17 @@ header nav {
     margin-left: 10px;
 }
 #scrollImg {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     width: 20px;
     height: 20px;
     margin-left: 10px;
     display: none;
     transition: 1s;
     color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
 }
 #scrollImg.show {
     transition: 1s;

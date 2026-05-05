@@ -11,6 +11,8 @@ window.onload = () => {
     const quizStart = document.getElementById("startbutton");
     const toggleButton = document.getElementById("toggleModes")
     const scrollImg = document.getElementById("scrollImg");
+    const scrollPrompt = document.getElementById("scroll");
+    const scrollArea = document.getElementById("scrollArea");
     function toggleHobbies() {
         if (hobbiesDiv.style.height == "inherit") {
             hobbiesDiv.style.height = "60px";
@@ -254,14 +256,17 @@ window.onload = () => {
         optionsDiv.appendChild(goHome);
     }
     introDiv.addEventListener("mouseover", () => {
-        
         scrollImg.classList.add("show");
     });
-    introDiv.addEventListener("scroll", () => {
-        introDiv.classList.add("scrolling");
-        scrollImg.classList.remove("show");
+    scrollArea.addEventListener("scroll", () => {
+        scrollArea.classList.add("scrolling");
+        introDiv.classList.add("scrolling")
+        scrollPrompt.style.display = "none";
+        const atBottom = introDiv.scrollTop + introDiv.clientHeight >= introDiv.scrollHeight - 1;
+        if (atBottom) {
+            scrollImg.classList.remove("show");
+        }
     });
-
     if (quiz) {
         quiz.style.display = "none";
     }
